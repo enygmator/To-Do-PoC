@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="JS\index.js"></script>
+    <link rel="stylesheet" type="text/css" src="CSS\index.css"></script>
+    <title>To-Do App</title>
+</head>
+<body>
+    <iframe style="width: 98%; height: 98%;top: 0%;bottom: 0%;left: 0%;right: 0%; position: absolute; margin: auto;"></iframe>
+    <div style="visibility: hidden; position: absolute; top: 0%;bottom: 0%;left: 0%;right: 0%; margin: auto; background: rgba(0, 255, 255, 0.192); width: 50%; height: 50%;">
+        <h1 id="MessageHead">Message Head</h1>
+        <p id="MessageBody">Message Body</p>
+    </div>
+    <div style="position: absolute; top: 0%;bottom: 0%;left: 0%;right: 0%; margin: auto; background: rgba(0, 255, 255, 0.192); width: 50%; height: 50%;">
+        <p>OPEN EXISTING TODO DATABASE</p>
+        <input id="inputFile" type="file" onchange="readFiles(event)">
+        <button onclick="NewToDoDB()">CREATE NEW TODO DATABASE</button>
+        <button onclick="ExportToDoDB()">EXPORT TODO DATABASE</button>
+    </div>
+</body>
+</html>

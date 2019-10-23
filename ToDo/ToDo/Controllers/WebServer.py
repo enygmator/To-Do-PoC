@@ -16,11 +16,13 @@ class WebServer(BaseHTTPRequestHandler):
     def do_GET(self):
         print("Request:", self.path)
         #self refers to the class in which we are curerently. thus path is a variable of THIS class
-        if self.path == '/' or self.path=='/index.html' or self.path=='':
-            self.path = 'Views\wwwRoot\index.html'
+        #region HTML
+        if 'html' in str(self.path) or str(self.path) == '/':
             try:
-                #Reading the file (index.html)
-                file_to_open = open(os.path.join(CurrentDir.parent,self.path)).read()
+                if str(self.path).endswith('/'):
+                    file_to_open = open(os.path.join(CurrentDir.parent,'Views\wwwRoot\index.html')).read()
+                else:
+                    file_to_open = open(os.path.join(CurrentDir.parent,"Views\wwwRoot", str(self.path).split('/')[-1])).read()
                 self.send_response(200)
                 self.send_header('Content-type','text/html')
             except:
@@ -28,10 +30,11 @@ class WebServer(BaseHTTPRequestHandler):
                 self.send_response(404)
             self.end_headers()
             self.wfile.write(bytes(file_to_open, 'utf-8'))
-        if self.path.endswith("index.js"):
-            self.path = 'Views\wwwRoot\JS\index.js'
+        #endregion
+        #region JS
+        if '/JS' in self.path:
             try:
-                file_to_open = open(os.path.join(CurrentDir.parent,self.path)).read()
+                file_to_open = open(os.path.join(CurrentDir.parent,"Views\wwwRoot\JS", str(self.path).split('/')[-1])).read()
                 self.send_response(200)
                 self.send_header('Content-type','application/javascript')
             except:
@@ -39,10 +42,11 @@ class WebServer(BaseHTTPRequestHandler):
                 self.send_response(404)
             self.end_headers()
             self.wfile.write(bytes(file_to_open, 'utf-8'))
-        if self.path.endswith("index.css"):
-            self.path = 'Views\wwwRoot\CSS\index.css'
+        #endregion
+        #region CSS
+        if '/CSS' in self.path:
             try:
-                file_to_open = open(os.path.join(CurrentDir.parent,self.path)).read()
+                file_to_open = open(os.path.join(CurrentDir.parent,"Views\wwwRoot\CSS", str(self.path).split('/')[-1])).read()
                 self.send_response(200)
                 self.send_header('Content-type','text/css')
             except:
@@ -50,6 +54,7 @@ class WebServer(BaseHTTPRequestHandler):
                 self.send_response(404)
             self.end_headers()
             self.wfile.write(bytes(file_to_open, 'utf-8'))
+        #endregion
         if self.path.endswith("Temp.db"):
             self.path = 'Models\Temp.db'
             try:
@@ -99,4 +104,4 @@ def Start():
         print("~There was an error in running the server")
 
 #DEVELOPMENT CODE (DISABLE DURING PRODUCTION)
-#Start()
+Start()

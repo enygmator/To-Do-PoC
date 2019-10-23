@@ -18,6 +18,7 @@ function NewToDoDB()
     var http = new XMLHttpRequest();
     http.open('POST', '/', true);
     http.send("NewToDoDatabase");
+    //INFO ABOUT SUCCESSFUL DATABASE CREATION
 }
 
 function ExportToDoDB()

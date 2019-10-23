@@ -1,0 +1,36 @@
+#ListBar
+{
+    margin: auto;
+    position: absolute;
+    width: 25%;
+    height: 90%;
+    background-color: darkmagenta;
+    top: 5%;
+    bottom: 5%;
+    left: 5%;
+}
+
+#Checklist
+{
+    margin: auto;
+    position: absolute;
+    width: 60%;
+    height: 90%;
+    background-color: darkmagenta;
+    top: 5%;
+    bottom: 5%;
+    right: 5%;
+}
+
+ol
+{
+    background: #ff9999;
+    padding: 20px;
+}
+
+ol li
+{
+    background: #ffe5e5;
+    padding: 5px;
+    margin-left: 35px;
+}

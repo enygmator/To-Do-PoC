@@ -72,15 +72,16 @@ class WebServer(BaseHTTPRequestHandler):
     def do_POST(self):
         contentLength = int(self.headers['Content-Length']) # <--- Gets the size of data
         Data = self.rfile.read(contentLength) # <--- Gets the data itself
-        if contentLength == 15:
+        if str(self.rfile.) == "NewToDoDatabase": ###THere is a problem here
             ToDoFileData = None
             with open(os.path.join(CurrentDir.parent,'Models\ToDo.db'), mode='rb') as ToDofile: # b is important -> binary
                 ToDoFileData = ToDofile.read()
             with open(os.path.join(CurrentDir.parent,'Models\Temp.db'),mode='wb') as Tempfile: # b is important -> binary
                 Tempfile.seek(0)
                 Tempfile.truncate()
-                Tempfile.write(ToDoFileData)                
-        else:
+                Tempfile.write(ToDoFileData)
+                print("New Todo database created successfully")
+        if str(self.headers()).endswith("Temp.db"):
             with open(os.path.join(CurrentDir.parent,'Models\Temp.db'),mode='wb') as file: # b is important -> binary
                 file.seek(0)
                 file.truncate()
@@ -104,4 +105,5 @@ def Start():
         print("~There was an error in running the server")
 
 #DEVELOPMENT CODE (DISABLE DURING PRODUCTION)
-Start()
+if __name__ == "__main__":
+    Start()

@@ -8,18 +8,25 @@
     <link rel="stylesheet" type="text/css" href="CSS\index.css"></script>
     <title>To-Do App</title>
 </head>
-<body>
-    <iframe style="width: 98%; height: 98%;top: 0%;bottom: 0%;left: 0%;right: 0%; position: absolute; margin: auto;"></iframe>
-    <div style="visibility: hidden; position: absolute; top: 0%;bottom: 0%;left: 0%;right: 0%; margin: auto; background: rgba(0, 255, 255, 0.192); width: 50%; height: 50%;">
-        <h1 id="MessageHead">Message Head</h1>
-        <p id="MessageBody">Message Body</p>
+<body style="background-color: rgb(0, 1, 75); margin: auto; position: absolute; top: 0%;bottom: 0%;left: 0%;right: 0%;">
+    <div id="HeaderDiv">
+        <h1>The ToDo APP</h1>
+        <h2 style="LINE-HEIGHT:10px;">Created by GROUP 10:</h2>
+        <p style="font-weight: bolder;LINE-HEIGHT:5px;">Moyank Giri [PES1UG19CS280]</p>
+        <p style="font-weight: bolder;LINE-HEIGHT:5px;">Vaibhava Krishna D [PES1UG19ME217]</p>
+        <p style="font-weight: bolder;LINE-HEIGHT:5px;">T Tarun Aditya [PES1UG19CS535]</p>
+        <h3 style="LINE-HEIGHT:10px;">A Python Project</h3>
+        <h3 style="LINE-HEIGHT:5px;">Semester 1 of batch 2019-23 : UE19CS102 - Section M</h3>
     </div>
-    <div style="position: absolute; top: 0%;bottom: 0%;left: 0%;right: 0%; margin: auto; background: rgba(0, 255, 255, 0.192); width: 50%; height: 50%;">
-        <p>OPEN EXISTING TODO DATABASE</p>
-        <input id="inputFile" type="file" onchange="readFiles(event)">
-        <button onclick="NewToDoDB()">CREATE NEW TODO DATABASE</button>
-        <button onclick="ExportToDoDB()">EXPORT TODO DATABASE</button>
-        <a href="ToDo.html">ToDo.html</a>
+    <div id="BodyDiv">
+        <div id="DBButtonDiv" style="top: 10%;">
+            <div>IMPORT TODO DATABASE:    <input id="inputFile" type="file" onchange="ImportToDoDB(event)" style="align-items: center;"></div>            
+        </div>
+        <button id="DBButtonDiv" style="bottom: 10%;" onclick="NewToDoDB()">CREATE NEW TODO DATABASE</button>
+    </div>
+    <div id="FooterDiv" class="row">
+        <p style="font-weight: bold; position: absolute; left: 5px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">App Status and notification:</p>
+        <p style="position: absolute; left: 250px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Everything looks good!</p>
     </div>
 </body>
 </html>

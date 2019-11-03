@@ -1,13 +1,23 @@
-function readFiles(event)
+function ImportToDoDB(event)
 {
     var fileList = event.target.files;
     var ToDodb = fileList[0];
     var http = new XMLHttpRequest();
-    http.open('POST', '/', true);
+    http.open('POST', '/Temp.db', true);
     http.setRequestHeader('Content-type', 'application/octet-stream');
-    http.onreadystatechange = function() {//Call a function when the state changes.
+    http.onreadystatechange = function() {
         if(http.readyState == 4 && http.status == 200) {
-            alert(http.responseText);
+            if (http.responseText == "There was an error importing the database" || http.responseText == "There was an error in creating the database")
+            {
+                alert(http.responseText);	
+                //Reload the page and ignore the browser cache.
+                window.location.reload(true);
+            }
+            else
+            {
+                alert(http.responseText);
+                GoToTODOHTML();
+            }
         }
     }
     http.send(ToDodb);
@@ -16,32 +26,22 @@ function readFiles(event)
 function NewToDoDB()
 {
     var http = new XMLHttpRequest();
-    http.open('POST', '/', true);
-    http.send("NewToDoDatabase");
-    //INFO ABOUT SUCCESSFUL DATABASE CREATION
+    http.open('POST', '/NewToDoDataBase', true);
+    http.onreadystatechange = function()
+    {
+        if(http.readyState == 4 && http.status == 200) {
+            alert(http.responseText);
+            GoToTODOHTML();
+        }
+    }
+    http.send();
 }
 
-function ExportToDoDB()
+function GoToTODOHTML()
 {
-    var request = new XMLHttpRequest();
-    request.open('GET', '/Temp.db', true);
-    request.responseType = 'blob';
-
-    request.onload = function()
-    {
-        // Only handle status code 200
-        if(request.status === 200)
-        {
-            // The actual download
-            var blob = new Blob([request.response], { type: 'application/octet-stream' });
-            var link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.download = "ToDo.db";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-    };
-    request.send();
-    alert("The existing ToDo Database has been exported")
+    var link = document.createElement('a');
+    link.href = '/ToDo.html';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }

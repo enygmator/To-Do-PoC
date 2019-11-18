@@ -4,7 +4,7 @@ import os
 DatabaseInOperation = False
 
 def ImportToDoData(CurrentDir,rfile,contentLength):
-    with open(os.path.join(CurrentDir,'Models\Temp.db'),mode='wb') as file: # b is important -> binary
+    with open(os.path.join(CurrentDir,'Models/Temp.db'),mode='wb') as file: # b is important -> binary
         file.seek(0)
         file.truncate()
         file.write(rfile.read(contentLength))
@@ -17,9 +17,9 @@ def ImportToDoData(CurrentDir,rfile,contentLength):
 
 def NewToDoDatabase(CurrentDir):
     ToDoFileData = None
-    with open(os.path.join(CurrentDir,'Models\ToDo.db'), mode='rb') as ToDofile: # b is important -> binary
+    with open(os.path.join(CurrentDir,'Models/ToDo.db'), mode='rb') as ToDofile: # b is important -> binary
         ToDoFileData = ToDofile.read()
-    with open(os.path.join(CurrentDir,'Models\Temp.db'),mode='wb') as Tempfile: # b is important -> binary
+    with open(os.path.join(CurrentDir,'Models/Temp.db'),mode='wb') as Tempfile: # b is important -> binary
         Tempfile.seek(0)
         Tempfile.truncate()
         Tempfile.write(ToDoFileData)
@@ -141,7 +141,7 @@ def DispToDoDataFrame():
 
 def DestroyToDoDBFrame(CurrentDir):
     try:
-        with open(os.path.join(CurrentDir,'Models\Temp.db'),mode='wb') as file: # b is important -> binary
+        with open(os.path.join(CurrentDir,'Models/Temp.db'),mode='wb') as file: # b is important -> binary
             file.seek(0)
             file.truncate()
         global DatabaseInOperation
@@ -153,7 +153,7 @@ def DestroyToDoDBFrame(CurrentDir):
         return "False"
 
 def Shutdown(CurrentDir):
-    with open(os.path.join(CurrentDir,'Models\Temp.db'),mode='wb') as file: # b is important -> binary
+    with open(os.path.join(CurrentDir,'Models/Temp.db'),mode='wb') as file: # b is important -> binary
         file.seek(0)
         file.truncate()
     global DatabaseInOperation

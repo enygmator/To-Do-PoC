@@ -29,7 +29,7 @@ class WebServer(BaseHTTPRequestHandler):
                         file_to_open = "The database is already initiated. Go To <a href=\"/ToDo.html\">\
                             ToDo App Page</a> to manage your todo lists, or to Destroy existing database and start afresh."
                     else:
-                        file_to_open = open(os.path.join(CurrentDir.parent,'Views\wwwRoot\index.html')).read()
+                        file_to_open = open(os.path.join(CurrentDir.parent,'Views/wwwRoot/index.html')).read()
                 else:
                     if self.path.endswith('/'):
                         self.path = self.path[:-1]
@@ -39,7 +39,7 @@ class WebServer(BaseHTTPRequestHandler):
                         file_to_open = "The database is already initiated. Go To <a href=\"/ToDo.html\">\
                             ToDo App Page</a> to manage your todo lists, or to Destroy existing database and start afresh."
                     else:
-                        file_to_open = open(os.path.join(CurrentDir.parent,"Views\wwwRoot", str(self.path).split('/')[-1])).read()
+                        file_to_open = open(os.path.join(CurrentDir.parent,"Views/wwwRoot", str(self.path).split('/')[-1])).read()
                 self.send_response(200)
                 self.send_header('Content-type','text/html')
             except:
@@ -51,7 +51,7 @@ class WebServer(BaseHTTPRequestHandler):
         #region JS
         if '/JS' in self.path:
             try:
-                file_to_open = open(os.path.join(CurrentDir.parent,"Views\wwwRoot\JS", str(self.path).split('/')[-1])).read()
+                file_to_open = open(os.path.join(CurrentDir.parent,"Views/wwwRoot/JS", str(self.path).split('/')[-1])).read()
                 self.send_response(200)
                 self.send_header('Content-type','application/javascript')
             except:
@@ -63,7 +63,7 @@ class WebServer(BaseHTTPRequestHandler):
         #region CSS
         if '/CSS' in self.path:
             try:
-                file_to_open = open(os.path.join(CurrentDir.parent,"Views\wwwRoot\CSS", str(self.path).split('/')[-1])).read()
+                file_to_open = open(os.path.join(CurrentDir.parent,"Views/wwwRoot/CSS", str(self.path).split('/')[-1])).read()
                 self.send_response(200)
                 self.send_header('Content-type','text/css')
             except:
@@ -73,7 +73,7 @@ class WebServer(BaseHTTPRequestHandler):
             self.wfile.write(bytes(file_to_open, 'utf-8'))
         #endregion
         if self.path.endswith("Temp.db"):
-            self.path = 'Models\Temp.db'
+            self.path = 'Models/Temp.db'
             try:
                 MasterControl.WriteToTempDB()
                 with open(os.path.join(CurrentDir,self.path), mode='rb') as file: # b is important -> binary

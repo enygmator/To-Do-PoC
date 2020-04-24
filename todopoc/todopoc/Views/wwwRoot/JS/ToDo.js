@@ -16,9 +16,10 @@ function DispToDoDataFrame()
 
 function DispAbout()
 {
-    str = "The ToDo APP\n\nCreated by GROUP 10:\nMoyank Giri [PES1UG19CS280]\nVaibhava Krishna D [PES1UG19ME217]\n"
-    str += "T Tarun Aditya [PES1UG19CS535]\n\nA Python Project\nSemester 1 of batch 2019-23 : UE19CS102 - Section M"
-    str += "\n\nVERSION: 3"
+    str = "Created by GROUP 10:\n1. Moyank Giri\n2. Vaibhava Krishna D\n3. T Tarun Aditya (Lead developer and project manager)\n\n";
+    str+="A Python Project\nSemester 1 of batch 2019-23\nUE19CS102 (Introduction to computing using python Lab) - Section M\n";
+    str+="PES University, Bengaluru, Karnataka, India\n\n";
+    str+="For more details or source code go to:\nhttps://github.com/enygmator/To-Do-PoC/"
     alert(str);
 }
 

@@ -144,7 +144,7 @@ class WebServer(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(bytes(responseText,'utf-8'))
 
-#MAIN Execuion
+#MAIN Execution
 def Start():
     global httpd
     httpd = HTTPServer(('localhost', PORT), WebServer)
@@ -155,7 +155,7 @@ def Start():
     except (KeyboardInterrupt,SystemExit): #this is the ctrl + C interrupt
     	print('~STOP Command received.',MasterControl.Shutdown(CurrentDir), "Shutting down the web server.")
     	httpd.socket.close()
-    except: #This is the deafualt exception, i.e. not specific to a particular "error", thus it must be at last
+    except: #This is the default exception, i.e. not specific to a particular "error", thus it must be at last
         print("~There was an error in running the server")
 
 #DEVELOPMENT CODE (DISABLE DURING PRODUCTION)

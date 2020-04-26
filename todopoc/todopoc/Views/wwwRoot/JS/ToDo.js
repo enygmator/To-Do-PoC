@@ -16,11 +16,35 @@ function DispToDoDataFrame()
 
 function DispAbout()
 {
-    str = "Created by GROUP 10:\n1. Moyank Giri\n2. Vaibhava Krishna D\n3. T Tarun Aditya (Lead developer and project manager)\n\n";
-    str+="A Python Project\nSemester 1 of batch 2019-23\nUE19CS102 (Introduction to computing using python Lab) - Section M\n";
-    str+="PES University, Bengaluru, Karnataka, India\n\n";
-    str+="For more details or source code go to:\nhttps://github.com/enygmator/To-Do-PoC/"
-    alert(str);
+    str = "Created by GROUP 10:<br>1. Moyank Giri<br>2. Vaibhava Krishna D<br>3. T Tarun Aditya (Lead developer and project manager)<br><br>";
+    str+="A Python Project<br>Semester 1 of batch 2019-23<br>UE19CS102 (Introduction to computing using python Lab) - Section M<br>";
+    str+="PES University, Bengaluru, Karnataka, India<br><br>";
+    str+="For more details or source code click the 'Go to GitHub' button";
+
+    $("#dialog-confirm").html(str);
+
+    // Define the Dialog and its properties.
+    $("#dialog-confirm").dialog({
+        resizable: false,
+        modal: true,
+        title: "Modal",
+        height: 400,
+        width: 500,
+        buttons: {
+            "Go to GitHub": function () {
+                $(this).dialog('close');
+                var link = document.createElement('a');
+                link.href = 'https://github.com/enygmator/To-Do-PoC/';
+                link.setAttribute("target", "_blank");
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            },
+            "Close": function () {
+                $(this).dialog('close');
+            }
+        }
+    });
 }
 
 function RefreshList()

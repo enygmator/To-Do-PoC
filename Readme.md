@@ -29,7 +29,7 @@ To get to know more details of the project, check out the WIKI, which has docume
 This app can be installed directly from the PyPI repo by just running the command `pip3 install todopoc` in a CLI.
 
 ### Cloning the Repo and installing it
-You can clone the repo and open the CLI with the path set to the main project folder (containing `run.ps1` and `run.sh`). Now, in linux/WSL, run `./run.sh` and/or in windows, run `.\run.ps1`. Choose the appropriate options, and you are done installing it.
+You can clone the repo and open the CLI with the path set to the main project folder (containing `run.ps1` and `run.sh`). Now, in linux/WSL, run `./run.sh` in bash and/or in windows, run `.\run.ps1` in powershell **AS ADMIN**. Choose the appropriate options, and you are done installing it.
 
 ### Install from Release
 You can download the ZIP file from the Release section and install it from there by executing: `pip install todopoc.zip` (Not working at the moment)

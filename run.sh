@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "To Do PoC App Installer"
+echo "Note that this script may be system specific, so verify its contents in case of an error"
 echo "Do you have python3 and pip3 installed? Y (yes) / N (no)"
 read VALID
 if [ $VALID == "Y" -o $VALID == "y" ]

@@ -1,3 +1,10 @@
+# FOLDERS
+
 **/__pycache__/
 **/todopoc.egg-info/
 .vscode/
+todopoc/build
+todopoc/dist
+
+# files
+**/*.pyc

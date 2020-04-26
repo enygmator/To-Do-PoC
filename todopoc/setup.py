@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='todopoc',
-    version='1.2',
+    version='1.3',
     author='Tarun & Moyank & Vaibhav',
     author_email='tarun.aditya.bc@gmail.com',
     description='A To-Do app for Proof of various Concepts',

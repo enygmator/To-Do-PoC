@@ -2,6 +2,8 @@
 
 >NOTE: This project is no longer in active development. This was a semester project, as a proof of concept **(intending to use multiple components rather that a framework, which is a not a good idea, thus making this more of a proof of bad concepts)** and thus cannot be developed into something which is better that other products on the market
 
+![Python Style Check](https://github.com/enygmator/To-Do-PoC/workflows/Python%20Style%20Check/badge.svg)
+
 This app will help you to stay on top of your daily tasks. It shows you what you have to do and at the same time 
 classifies the tasks for you to manage your responsibilities, work or just your wish to do something.
 

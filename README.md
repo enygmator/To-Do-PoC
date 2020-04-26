@@ -53,7 +53,8 @@ While developing it, you can use the app usual, the way it is mentioned in [USAG
 
 A simpler method would be to run the `WebServer.py` file directly using python, but beware, you will have to temporarily change some import statements in files such as `MasterControl.py`.
 
-The WIKI contains all info you will need while developing it.
+The WIKI contains all info you will need while developing it, and later while creating a release of your own, for yourself, or 
+by making a PR to this repo itself.
 
 # LICENSE
 This project has been open-sourced on github with the Apache License, Version 2.0, January 2004. Read the License file for further details.
